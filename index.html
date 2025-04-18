@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Report Upload</title>
+  <link rel="stylesheet" href="admin.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore-compat.js"></script>
+  
+</head>
+<body>
+  <div class="sidebar">
+    <a href="card-pannel/card-pannel.html">
+      <button>💳 Card Panel</button>
+    </a>
+  </div>
+
+  <div class="main-content">
+    <!-- Report Upload Section -->
+    <div class="admin-container" id="reportSection">
+      <h1>Upload Patient Report</h1>
+      <form id="uploadReportForm">
+        <input type="text" id="userId" placeholder="Patient Firebase User ID" required />
+        <input type="text" id="reportOf" placeholder="Report Of" required />
+        <input type="text" id="doctor" placeholder="Doctor's Name" required />
+        <label>Appointment Booked On:</label>
+        <input type="date" id="bookedOn" required />
+        <label>Appointment Date:</label>
+        <input type="date" id="appointmentDate" required />
+        <select id="status" required>
+          <option value="">-- Status --</option>
+          <option value="Pending">Pending</option>
+          <option value="Ready">Ready</option>
+        </select>
+        <input type="url" id="reportLink" placeholder="PDF Report Link (if ready)" />
+        <button type="submit">Upload Report</button>
+      </form>
+      <p id="uploadStatus"></p>
+    </div>
+
+    <!-- Insurance Approval Section -->
+    <div class="admin-container" id="insuranceSection" style="display: none;">
+      <h1>Insurance Applications</h1>
+      <div id="applicationsList"></div>
+    </div>
+  </div>
+
+  <script type="module" src="admin.js"></script>
+</body>
+
